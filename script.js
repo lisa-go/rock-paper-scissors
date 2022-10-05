@@ -60,7 +60,15 @@ function game() {
             console.log ("Player Score: " + playerScore + " Computer Score: " + computerScore) 
 
         }
+
+        if (playerScore > computerScore) {
+            console.log("You Win!")
+        }
+        else {
+            console.log ("You Lose!")
+        }
            }
+
 
 
 game ()
