@@ -36,14 +36,13 @@ function playRound(playerSelection, computerSelection) {
 
             else {
             console.log ("Tie!");
+            return ("Tie!");
             }
-console.log (computerSelection)
 
 }
 
-
-
-
+let playerScore = 0;
+let computerScore = 0;
 
 function game() {
 
@@ -51,14 +50,21 @@ function game() {
 
         computerSelection = getComputerChoice();
         let playerSelection = prompt("Rock, Paper, Scissors?").toLowerCase("");
-        playRound(playerSelection, computerSelection);
+        if (playRound(playerSelection, computerSelection) === "playerWin") {
+            playerScore++;}
+            else if (playRound(playerSelection, computerSelection) === "computerWin") {
+                computerScore++;
+            }
+            else if (playRound(playerSelection, computerSelection) === "Tie!") {
+                i--;
+            }
+
+            console.log ("Player Score: " + playerScore + " Computer Score: " + computerScore) 
+        }
 
     }
 
-
     
-    
-     }
 
 
 game ()
