@@ -1,30 +1,31 @@
+
+    //...... selecting DOM parent ......//
 const container = document.querySelector("#container");
 
+    //...... creating results text ......//
 const results = document.createElement("div");
 results.classList.add("results");
-
 container.appendChild(results);
 
-
+    //...... creating score text ......//
 const score = document.createElement("div");
 score.classList.add("score");
-
 container.appendChild(score);
 
-
+    //...... creating final result text ......//
 const finalResult = document.createElement("div");
 finalResult.classList.add("finalResult");
-
 container.appendChild(finalResult);
 
 
-
+    //...... generating random computer selection ......//
 function getComputerChoice () {
         const choices = ["rock","paper","scissors"];
         let random = Math.floor(Math.random()*choices.length);
         return (random,choices[random]);
     }
 
+    //...... determining winner of each combination of choices ......//
 function playRound(playerSelection, computerSelection) {
    if (computerSelection === "rock" && playerSelection === "scissors") {
     return ("computerWin");
@@ -52,21 +53,25 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
+    //...... start score count ......//
 let playerScore = 0;
 let computerScore = 0;
 
-
+    //...... score counting ......//
 function game() {
 
+        //...... ending game at score 5 ......//
         computerSelection = getComputerChoice();
         if (playerScore === 5) {
-            finalResult.textContent = "You Win!";
-            reset ();
+            finalResult.textContent = "You Win! Press Any Key to Restart!";
+            endGame ();
+            restartGame ();
         }
 
         if (computerScore === 5) {
-            finalResult.textContent = "You Lose!";
-            reset ();
+            finalResult.textContent = "You Lose! Press Any Key to Restart!";
+            endGame ();
+            restartGame ();
         }
 
         else {
@@ -87,12 +92,28 @@ function game() {
             score.textContent = "Player Score: " + playerScore + " Computer Score: " + computerScore; 
         }
 
-
-function reset () {
-    playerScore = 0;
-    computerScore = 0;
+    //...... end game function disables further button press inputs ......//
+function endGame () {
+    document.getElementById("rock").disabled = true;
+    document.getElementById("paper").disabled = true;
+    document.getElementById("scissors").disabled = true;
 }
 
+function restartGame () {
+    addEventListener('keypress', () => {
+        document.getElementById("rock").disabled = false;
+        document.getElementById("paper").disabled = false;
+        document.getElementById("scissors").disabled = false;
+        playerScore = 0;
+        computerScore = 0;
+        results.textContent = "";
+        finalResult.textContent = "";
+        score.textContent = "Player Score: " + playerScore + " Computer Score: " + computerScore; 
+    });
+
+}
+
+    //...... determine player selection as button pressed ......//
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', () => {
     playerSelection = "rock";

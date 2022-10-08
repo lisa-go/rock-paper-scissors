@@ -13,8 +13,9 @@ body {
 
 #container {
     border: 3px dotted pink;
-    padding: 8px;
+    padding: 16px;
     color: white;
+
 }
 
 .buttoncontainer {
@@ -33,6 +34,17 @@ button {
     border-radius: 8px;
     padding: 6px 12px;
     
+}
+
+button:hover {
+    background-color: white;
+    color: #60a4df;
+    transition: 0.7s;
+}
+
+button:disabled {
+    background-color: #F5F5F5;
+    color : #C3C3C3;
 }
 
 .results {
