@@ -91,7 +91,6 @@ function game() {
 function reset () {
     playerScore = 0;
     computerScore = 0;
-
 }
 
 const rock = document.querySelector('#rock');
