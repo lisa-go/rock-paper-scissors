@@ -50,7 +50,6 @@ function playRound(playerSelection, computerSelection) {
             else {
             return ("Tie!");
             }
-
 }
 
     //...... start score count ......//
@@ -59,24 +58,7 @@ let computerScore = 0;
 
     //...... score counting ......//
 function game() {
-
-        //...... ending game at score 5 ......//
-        computerSelection = getComputerChoice();
-        if (playerScore === 5) {
-            finalResult.textContent = "You Win! Press Any Key to Restart!";
-            endGame ();
-            restartGame ();
-        }
-
-        if (computerScore === 5) {
-            finalResult.textContent = "You Lose! Press Any Key to Restart!";
-            endGame ();
-            restartGame ();
-        }
-
-        else {
-            finalResult.textContent = "";
-        }
+    computerSelection = getComputerChoice();
         
         if (playRound(playerSelection, computerSelection) === "playerWin") {
             playerScore++;
@@ -90,7 +72,25 @@ function game() {
                 results.textContent = "Tie! " + playerSelection + " and " + computerSelection;
             }
             score.textContent = "Player Score: " + playerScore + " Computer Score: " + computerScore; 
-        }
+        
+
+        //...... ending game at score 5 ......//
+    if (playerScore >= 5) {
+        finalResult.textContent = "You Win! Press Any Key to Restart!";
+        endGame ();
+        restartGame ();
+    }
+
+    else if (computerScore >= 5) {
+        finalResult.textContent = "You Lose! Press Any Key to Restart!";
+        endGame ();
+        restartGame ();
+    }
+
+    else {
+        finalResult.textContent = "";
+    }
+    }
 
     //...... end game function disables further button press inputs ......//
 function endGame () {
@@ -110,7 +110,6 @@ function restartGame () {
         finalResult.textContent = "";
         score.textContent = "Player Score: " + playerScore + " Computer Score: " + computerScore; 
     });
-
 }
 
     //...... determine player selection as button pressed ......//
@@ -118,21 +117,18 @@ const rock = document.querySelector('#rock');
 rock.addEventListener('click', () => {
     playerSelection = "rock";
     game ()
-
 });
   
 const paper = document.querySelector('#paper');
 paper.addEventListener('click', () => {
     playerSelection = "paper";
     game ()
-
 });
 
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', () => {
     playerSelection = "scissors";
     game ()
-
 });
     
 

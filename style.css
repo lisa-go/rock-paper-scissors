@@ -1,45 +1,51 @@
 body {
-    background-color: gray;
+    background: url(./images/background.jpg);
+    background-repeat: repeat;
     font-family: monospace, sans-serif;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    margin: 10% 0;
     padding: 0;
     gap: 16px;
 }
 
 #container {
-    border: 3px dotted pink;
+    border: 3px double #c177ec;
     padding: 16px;
-    color: white;
+    color: #c177ec;
+    background-color: rgba(255, 255, 255, 0.74);
+    width: 30%;
+    height: fit-content;
+    text-align: center;
 
 }
 
 .buttoncontainer {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     justify-content: space-between;
 }
 
 button {
     flex: 1;
-    width: 120px;
-    background-color: #60a4df;
+    width: 100px;
+    background-color: #c992e9;
     border: none;
     color: white;
     font-size: larger;
     border-radius: 8px;
     padding: 6px 12px;
+    font-size: 50px;
     
 }
 
 button:hover {
     background-color: white;
-    color: #60a4df;
-    transition: 0.7s;
+    color: #c992e9;
+    transition: 1s;
 }
 
 button:disabled {
@@ -47,14 +53,10 @@ button:disabled {
     color : #C3C3C3;
 }
 
-.results {
-
-}
-
-.score {
-
-}
-
-.finalResults {
-
+h1 {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.795);
+    text-align: center;
+    border: 3px double #c177ec;
+    padding: 2px 6px;
 }
